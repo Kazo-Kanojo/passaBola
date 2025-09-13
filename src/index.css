@@ -1,0 +1,42 @@
+/* PLEASE NOTE: THESE TAILWIND IMPORTS SHOULD NEVER BE DELETED */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+/* DO NOT DELETE THESE TAILWIND IMPORTS, OTHERWISE THE STYLING WILL NOT RENDER AT ALL */
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+/* Custom styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+/* Animation classes */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-in.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+.btn-primary {
+  @apply bg-accent text-white font-medium px-6 py-3 rounded-full transition-all duration-300 hover:bg-opacity-90 hover:shadow-lg transform hover:-translate-y-1;
+}
+.btn-secondary {
+  @apply bg-tertiary text-white font-medium px-6 py-3 rounded-full transition-all duration-300 hover:bg-opacity-90 hover:shadow-lg transform hover:-translate-y-1;
+}
+.btn-outline {
+  @apply border-2 border-accent text-accent font-medium px-6 py-3 rounded-full transition-all duration-300 hover:bg-accent hover:text-white hover:shadow-lg transform hover:-translate-y-1;
+}
+.card {
+  @apply bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl transform hover:-translate-y-2;
+}
+.section-title {
+  @apply text-3xl md:text-4xl font-bold mb-6 text-accent;
+}
+.section-subtitle {
+  @apply text-xl text-tertiary mb-12 max-w-3xl mx-auto;
+}
