@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 const HeroSection = () => {
   useEffect(() => {
     const fadeElements = document.querySelectorAll('.fade-in');
@@ -23,7 +23,7 @@ const HeroSection = () => {
   return <section className="min-h-screen flex items-center pt-16 relative overflow-hidden bg-gradient-to-b from-primary/10 to-tertiary/10">
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/40 to-tertiary/40"></div>
-        <img src="https://images.pexels.com/photos/9519507/pexels-photo-9519507.jpeg?_gl=1*1sfw5ls*_ga*ODg1MzI2MTA4LjE3MjQ1Mzg3MDI.*_ga_8JE65Q40S6*czE3NTc3NzkzNTgkbzIkZzEkdDE3NTc3Nzk5MTIkajMwJGwwJGgw" alt="Futebol feminino" className="w-full h-full object-cover" />
+        <img src="https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Futebol feminino" className="w-full h-full object-cover" />
       </div>
       <div className="container mx-auto px-4 py-20 relative z-10">
         <div className="max-w-3xl">

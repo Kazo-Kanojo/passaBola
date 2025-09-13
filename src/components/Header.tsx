@@ -1,8 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { MenuIcon, XIcon } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
+import LoginModal from './auth/LoginModal';
+import RegisterModal from './auth/RegisterModal';
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showRegisterModal, setShowRegisterModal] = useState(false);
+  const {
+    isAuthenticated
+  } = useAuth();
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -14,6 +22,18 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+  const openLoginModal = () => {
+    setShowLoginModal(true);
+    setIsOpen(false);
+  };
+  const openRegisterModal = () => {
+    setShowRegisterModal(true);
+    setIsOpen(false);
+  };
+  // Don't render the header if the user is authenticated
+  if (isAuthenticated) {
+    return null;
+  }
   return <header className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'}`}>
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div className="flex items-center">
@@ -41,12 +61,12 @@ const Header = () => {
           <a href="#contato" className="text-text hover:text-accent transition-colors">
             Contato
           </a>
-          <a href="#login" className="btn-outline text-sm">
+          <button onClick={openLoginModal} className="btn-outline text-sm">
             Entrar
-          </a>
-          <a href="#cadastro" className="btn-primary text-sm">
+          </button>
+          <button onClick={openRegisterModal} className="btn-primary text-sm">
             Cadastre-se
-          </a>
+          </button>
         </nav>
       </div>
       {/* Mobile Navigation */}
@@ -65,15 +85,24 @@ const Header = () => {
               Contato
             </a>
             <div className="flex flex-col space-y-2 pt-2">
-              <a href="#login" className="btn-outline text-center text-sm" onClick={() => setIsOpen(false)}>
+              <button onClick={openLoginModal} className="btn-outline text-center text-sm">
                 Entrar
-              </a>
-              <a href="#cadastro" className="btn-primary text-center text-sm" onClick={() => setIsOpen(false)}>
+              </button>
+              <button onClick={openRegisterModal} className="btn-primary text-center text-sm">
                 Cadastre-se
-              </a>
+              </button>
             </div>
           </div>
         </div>}
+      {/* Modals */}
+      <LoginModal isOpen={showLoginModal} onClose={() => setShowLoginModal(false)} onSwitchToRegister={() => {
+      setShowLoginModal(false);
+      setShowRegisterModal(true);
+    }} />
+      <RegisterModal isOpen={showRegisterModal} onClose={() => setShowRegisterModal(false)} onSwitchToLogin={() => {
+      setShowRegisterModal(false);
+      setShowLoginModal(true);
+    }} />
     </header>;
 };
 export default Header;
