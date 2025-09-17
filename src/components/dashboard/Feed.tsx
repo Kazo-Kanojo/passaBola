@@ -14,8 +14,8 @@ const mockPosts = [{
   },
   content: 'Muito feliz em anunciar minha transferência para o Corinthians! Um sonho realizado vestir essa camisa. Vamos com tudo! 🖤',
   image: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1936&q=80',
-  likes: 2000,
-  comments: 0,
+  likes: 124,
+  comments: 18,
   timestamp: '2 horas atrás'
 }, {
   id: '2',
